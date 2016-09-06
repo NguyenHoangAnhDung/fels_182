@@ -1,0 +1,45 @@
+<% provide :title, t("sign_up") %>
+<div id="content">
+  <div class="whereheader">
+    <%= link_to t("sign_up"), "#", class: "large" %>
+    <ul>
+      <li><%= link_to t("sign_in"), "#" %></li>
+      <li class="last"><%= link_to t("sign_up"), "#" %></li>
+    </ul>
+  </div>
+  <div id="signupform">
+      <form method="get">
+        <div class="formnhap">
+          <h2>Sign up</h2>
+          <input type="text" placeholder="First name" id="ho">
+          <input type="text" placeholder="Email">
+          <input type="password" placeholder="Password">
+          <input type="password" placeholder="Password confirmation">
+        </div>
+        <div class="gender">
+          <select id="blue">
+            <optgroup label="Categories">
+              <option >Chọn đợt đăng ký</option>
+              <option display="none">I love Steve Jobs</option>
+              <option selected="selected">PHP is awesome</option>
+              <option>I'm a Developer</option>
+            </optgroup>
+            <optgroup label="Favorites">
+              <option>Facebook</option>
+              <option>Youtube</option>
+              <option>Stackoverflow</option>
+              <option>SublimeText</option>
+              <option>PHP&Jquery</option>
+            </optgroup>
+          </select>
+        </div>
+        <input type="submit" value="Sign up">
+        <div class="remind">
+          <span>
+            Already have an account?
+            <a href="welcomeadmin.html"> Sign in here</a>
+          </span>
+        </div>
+      </form>
+    </div>
+</div>
