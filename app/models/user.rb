@@ -13,6 +13,6 @@ class User < ActiveRecord::Base
     format: { with: VALID_EMAIL_REGEX },
     uniqueness: { case_sensitive: false }
   validates :fullname, presence: true, length: { maximum: 50 }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }
   has_secure_password
 end

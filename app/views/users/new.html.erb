@@ -8,38 +8,27 @@
     </ul>
   </div>
   <div id="signupform">
-      <form method="get">
-        <div class="formnhap">
-          <h2>Sign up</h2>
-          <input type="text" placeholder="First name" id="ho">
-          <input type="text" placeholder="Email">
-          <input type="password" placeholder="Password">
-          <input type="password" placeholder="Password confirmation">
-        </div>
+    <%= form_for @user do |f| %>
+      <%= render 'shared/error_messages' %>
+      <div class="form-sign">
+        <h2><%= t "sign_up" %></h2>
+        <%= f.text_field :fullname, placeholder: t("full_name_placeholder") %>
+        <%= f.email_field :email, placeholder: t("email_placeholder") %>
+        <%= f.password_field :password,
+          placeholder: t("password_placeholder") %>
+        <%= f.password_field :password_confirmation,
+          placeholder: t("password_confirmation_placeholder") %>
         <div class="gender">
-          <select id="blue">
-            <optgroup label="Categories">
-              <option >Chọn đợt đăng ký</option>
-              <option display="none">I love Steve Jobs</option>
-              <option selected="selected">PHP is awesome</option>
-              <option>I'm a Developer</option>
-            </optgroup>
-            <optgroup label="Favorites">
-              <option>Facebook</option>
-              <option>Youtube</option>
-              <option>Stackoverflow</option>
-              <option>SublimeText</option>
-              <option>PHP&Jquery</option>
-            </optgroup>
-          </select>
+          <%= f.select :gender, [['Male', true],['Female', false]] %>
         </div>
-        <input type="submit" value="Sign up">
+        <%= f.submit t("sign_up") %>
         <div class="remind">
           <span>
-            Already have an account?
-            <a href="welcomeadmin.html"> Sign in here</a>
+            <%= t "remind_sign_up" %>
+            <%= link_to t("sign_up"), "#" %>
           </span>
         </div>
-      </form>
-    </div>
+      </div>
+    <% end %>
+  </div>
 </div>

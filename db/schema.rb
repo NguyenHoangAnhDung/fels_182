@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 20160906070745) do
   add_index "results", ["word_id"], name: "index_results_on_word_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "username"
     t.string   "email"
     t.string   "fullname"
     t.boolean  "gender"
@@ -87,7 +86,6 @@ ActiveRecord::Schema.define(version: 20160906070745) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
   create_table "words", force: :cascade do |t|
     t.string   "content"
