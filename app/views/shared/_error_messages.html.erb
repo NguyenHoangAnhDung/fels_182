@@ -1,7 +1,7 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      The form contains <%= @user.errors.count %> error.
+      <%= t "error_message", number: @user.errors.count %>
     </div>
     <ul>
       <% @user.errors.full_messages.each do |message| %>

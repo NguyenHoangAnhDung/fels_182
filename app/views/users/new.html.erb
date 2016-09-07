@@ -19,7 +19,7 @@
         <%= f.password_field :password_confirmation,
           placeholder: t("password_confirmation_placeholder") %>
         <div class="gender">
-          <%= f.select :gender, [['Male', true],['Female', false]] %>
+          <%= f.select :gender, [[t("male"), true], [t("female"), false]] %>
         </div>
         <%= f.submit t("sign_up") %>
         <div class="remind">
