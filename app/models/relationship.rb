@@ -3,6 +3,8 @@ class Relationship < ActiveRecord::Base
   belongs_to :followed, class_name: User.name
   validates :follower, presence: true
   validates :followed, presence: true
+  after_create :create_follow_activity
+  after_destroy :create_unfollow_activity
 
   private
   def create_follow_activity

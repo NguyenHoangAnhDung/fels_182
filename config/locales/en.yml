@@ -130,3 +130,8 @@ en:
   time:
     formats:
       default: "%A, %d. %B %Y, %H:%M"
+  finish_lesson: "Finish lesson "
+  create_lesson: "Create lesson "
+  with_result: "with result is"
+  unfollow_action: "unfollowed"
+  follow_action: "followed"

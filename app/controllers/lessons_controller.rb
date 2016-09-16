@@ -41,12 +41,18 @@ class LessonsController < ApplicationController
   end
 
   def index
-    @lessons = Lesson.paginate(page: params[:page])
-      .per_page Settings.page_size
+    @lessons = Lesson.filter_by_user(current_user)
+      .paginate(page: params[:page]).per_page Settings.page_size
   end
 
   private
   def lesson_params
     params.require(:lesson).permit results_attributes: [:id, :answer_id]
+  end
+
+  def update_lesson_activity
+    Activity.create user_id: current_user.id, target_id: @lesson.id,
+      action_type: :update_lesson,
+      count_correct: @lesson.results.count_correct_answer
   end
 end
