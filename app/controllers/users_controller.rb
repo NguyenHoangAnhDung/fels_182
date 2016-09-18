@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :load_user, except: [:index, :new, :create]
   before_action :require_logged_in_as_admin, only: :destroy
+  after_action :delete_activity_by_followed, only: [:destroy]
 
   def index
     @users = User.paginate page: params[:page]
@@ -48,5 +49,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit :fullname, :email, :password,
       :password_confirmation, :gender
+  end
+
+  def delete_activity_by_followed
+    following = Activity.find_follwed @user
+    following.destroy_all
   end
 end

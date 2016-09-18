@@ -1,7 +1,6 @@
 class RelationshipsController < ApplicationController
   before_action :require_logged_in_user
   before_action :load_user, only: :index
-
   def index
     @users = params[:type] == :following.to_s ?
       @user.following : @user.followers
